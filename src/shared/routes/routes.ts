@@ -31,7 +31,7 @@ export const APP_ROUTES: AppRoute[] = [
   },
   {
     id: "loans-mine",
-    label: "Mis solicitudes",
+    label: "Mis deudas y pagos",
     path: "/loans/mine",
     roles: ["CLIENT"],
   },
@@ -47,8 +47,9 @@ export function getVisibleRoutesForRole(
   role: "CLIENT" | "ANALYST" | null | undefined,
 ) {
   return APP_ROUTES.filter((route) => {
+    // Si no hay rol (por ejemplo en modo demo sin auth), mostramos todas las rutas.
+    if (!role) return true;
     if (!route.roles) return true;
-    if (!role) return false;
     return route.roles.includes(role);
   });
 }
