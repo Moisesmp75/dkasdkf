@@ -20,7 +20,7 @@ export function Sidebar() {
           {role === "ANALYST" ? "Panel de analista de crédito" : "Panel de cliente"}
         </p>
       </div>
-      <nav className="mt-6 space-y-2 text-sm">
+      <nav className="mt-6 space-y-1.5 text-sm">
         {visibleRoutes.map((route) => {
           const isActive = pathname === route.path;
           return (
@@ -28,8 +28,9 @@ export function Sidebar() {
               key={route.id}
               href={route.path}
               className={cn(
-                "block rounded-md px-3 py-2 text-zinc-800 hover:bg-zinc-100",
-                isActive && "bg-zinc-900 text-white hover:bg-zinc-900",
+                "block rounded-md px-3 py-2 text-zinc-700 hover:bg-zinc-100",
+                isActive &&
+                  "bg-zinc-100 text-zinc-900 font-medium border border-zinc-200",
               )}
             >
               {route.label}
